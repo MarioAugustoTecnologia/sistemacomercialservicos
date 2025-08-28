@@ -19,7 +19,7 @@ const ComprasMes = () => {
 
   useEffect(() => {
 
-    fetch("http://localhost:3000/compras").then((res) => {
+    fetch("https://sistemacomercialservicos.onrender.com/compras").then((res) => {
 
       return res.json()
 
@@ -54,7 +54,7 @@ const ComprasMes = () => {
 
       if (result.isConfirmed) {
 
-        fetch("http://localhost:3000/compras/" + id, {
+        fetch("https://sistemacomercialservicos.onrender.com/compras/" + id, {
 
           method: "DELETE"
 
@@ -109,7 +109,7 @@ const ComprasMes = () => {
       
       const cadobj = { nome, total, data_cad, mes, valorpagto, compran }
 
-      fetch("http://localhost:3000/compras", {
+      fetch("https://sistemacomercialservicos.onrender.com/compras", {
         method: "POST",
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify(cadobj)
@@ -122,7 +122,7 @@ const ComprasMes = () => {
       })
       const cadobj2 = { nome, total }
 
-      fetch("http://localhost:3000/saidas", {
+      fetch("https://sistemacomercialservicos.onrender.com/saidas", {
         method: "POST",
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify(cadobj2)
@@ -153,7 +153,7 @@ const ComprasMes = () => {
     
             if (result.isConfirmed) {
     
-              fetch("http://localhost:3000/mescompraatual", {
+              fetch("https://sistemacomercialservicos.onrender.com/mescompraatual", {
                 method: "POST",
                 headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(cadobj)

@@ -11,7 +11,7 @@ const CadCompras = () => {
   const { pcod } = useParams();
 
   useEffect(() => {
-    fetch("http://localhost:3000/produtos/" + pcod).then((res) => {
+    fetch("https://sistemacomercialservicos.onrender.com/produtos/" + pcod).then((res) => {
       return res.json();
     }).then((resp) => {
       Idchange(resp.id);
@@ -45,7 +45,7 @@ const CadCompras = () => {
 
   useEffect(() => {
 
-    fetch("http://localhost:3000/compraatual").then((res) => {
+    fetch("https://sistemacomercialservicos.onrender.com/compraatual").then((res) => {
 
       return res.json()
 
@@ -61,7 +61,7 @@ const CadCompras = () => {
 
   useEffect(() => {
 
-    fetch("http://localhost:3000/mescompraatual").then((res) => {
+    fetch("https://sistemacomercialservicos.onrender.com/mescompraatual").then((res) => {
 
       return res.json()
 
@@ -77,7 +77,7 @@ const CadCompras = () => {
 
 
   useEffect(() => {
-    fetch("http://localhost:3000/fornecedor").then((res) => {
+    fetch("https://sistemacomercialservicos.onrender.com/fornecedor").then((res) => {
 
       return res.json()
 
@@ -272,7 +272,7 @@ const CadCompras = () => {
 
               if (result.isConfirmed) {
 
-                fetch("http://localhost:3000/compras", {
+                fetch("https://sistemacomercialservicos.onrender.com/compras", {
                   method: "POST",
                   headers: { 'content-type': 'application/json' },
                   body: JSON.stringify(cadobj)
@@ -286,7 +286,7 @@ const CadCompras = () => {
 
                   const edtobj = { id, qtd }
 
-                  fetch("http://localhost:3000/produtos/" + pcod, {
+                  fetch("https://sistemacomercialservicos.onrender.com/produtos/" + pcod, {
                     method: "PATCH",
                     headers: { 'content-type': 'application/json' },
                     body: JSON.stringify(edtobj)
@@ -325,7 +325,7 @@ const CadCompras = () => {
 
                   if (result.isConfirmed) {
 
-                    fetch("http://localhost:3000/compras", {
+                    fetch("https://sistemacomercialservicos.onrender.com/compras", {
                       method: "POST",
                       headers: { 'content-type': 'application/json' },
                       body: JSON.stringify(cadobj)
@@ -339,7 +339,7 @@ const CadCompras = () => {
 
                       const edtobj = { id, qtd }
 
-                      fetch("http://localhost:3000/produtos/" + pcod, {
+                      fetch("https://sistemacomercialservicos.onrender.com/produtos/" + pcod, {
                         method: "PATCH",
                         headers: { 'content-type': 'application/json' },
                         body: JSON.stringify(edtobj)
@@ -395,7 +395,7 @@ const CadCompras = () => {
 
               if (result.isConfirmed) {
 
-                fetch("http://localhost:3000/compras", {
+                fetch("https://sistemacomercialservicos.onrender.com/compras", {
                   method: "POST",
                   headers: { 'content-type': 'application/json' },
                   body: JSON.stringify(cadobj)
@@ -408,7 +408,7 @@ const CadCompras = () => {
 
                   const edtobj = { id, qtd }
 
-                  fetch("http://localhost:3000/produtos/" + pcod, {
+                  fetch("https://sistemacomercialservicos.onrender.com/produtos/" + pcod, {
                     method: "PATCH",
                     headers: { 'content-type': 'application/json' },
                     body: JSON.stringify(edtobj)
@@ -463,7 +463,7 @@ const CadCompras = () => {
 
             if (result.isConfirmed) {
 
-              fetch("http://localhost:3000/compras", {
+              fetch("https://sistemacomercialservicos.onrender.com/compras", {
                 method: "POST",
                 headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(cadobj)
@@ -477,7 +477,7 @@ const CadCompras = () => {
 
                 const edtobj = { id, qtd }
 
-                fetch("http://localhost:3000/produtos/" + pcod, {
+                fetch("https://sistemacomercialservicos.onrender.com/produtos/" + pcod, {
                   method: "PATCH",
                   headers: { 'content-type': 'application/json' },
                   body: JSON.stringify(edtobj)

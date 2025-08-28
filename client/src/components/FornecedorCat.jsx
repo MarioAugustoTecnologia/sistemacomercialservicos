@@ -19,7 +19,7 @@ const FornecedorCat = () => {
   
   useEffect(() => {
 
-    fetch("http://localhost:3000/fornecedor").then((res) => {
+    fetch("https://sistemacomercialservicos.onrender.com/fornecedor").then((res) => {
 
     return res.json()
 
@@ -51,7 +51,7 @@ const FornecedorCat = () => {
               
       if (result.isConfirmed) {
 
-        fetch("http://localhost:3000/fornecedor/" + id, {
+        fetch("https://sistemacomercialservicos.onrender.com/fornecedor/" + id, {
 
           method: "DELETE"    
 

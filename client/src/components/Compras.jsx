@@ -12,7 +12,7 @@ const Compras = () => {
 
   useEffect(() => {
 
-    fetch("http://localhost:3000/compras", {
+    fetch("https://sistemacomercialservicos.onrender.com/compras", {
 
       method: "GET",
       headers: { 'content-type': 'application/json' }
@@ -44,7 +44,7 @@ const Compras = () => {
 
       if (result.isConfirmed) {
 
-        fetch("http://localhost:3000/compras/" + id, {
+        fetch("https://sistemacomercialservicos.onrender.com/compras/" + id, {
 
           method: "DELETE"
 
@@ -78,7 +78,7 @@ const Compras = () => {
 
         for (id = 0; id <= compras.length; id++) {
 
-          fetch("http://localhost:3000/compras/" + id, {
+          fetch("https://sistemacomercialservicos.onrender.com/compras/" + id, {
 
             method: "DELETE"
 

@@ -18,7 +18,7 @@ const EntradasNumeroCat = () => {
 
   useEffect(() => {
 
-    fetch("http://localhost:3000/vendas").then((res) => {
+    fetch("https://sistemacomercialservicos.onrender.com/vendas").then((res) => {
 
       return res.json()
 
@@ -48,7 +48,7 @@ const EntradasNumeroCat = () => {
       if (result.isConfirmed) {
 
 
-        fetch("http://localhost:3000/vendas/" + id, {
+        fetch("https://sistemacomercialservicos.onrender.com/vendas/" + id, {
 
           method: "DELETE"
 
@@ -123,8 +123,8 @@ function somar() {
    }
   
            
-}                 
-      
+}                
+     
   
 
   const logout = () => {

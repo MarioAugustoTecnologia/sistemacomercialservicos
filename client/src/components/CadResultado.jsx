@@ -22,7 +22,7 @@ const CadResultado = () => {
 
   useEffect(() => {
 
-    fetch("http://localhost:3000/entradas").then((res) => {
+    fetch("https://sistemacomercialservicos.onrender.com/entradas").then((res) => {
 
       return res.json()
 
@@ -38,7 +38,7 @@ const CadResultado = () => {
 
   useEffect(() => {
 
-    fetch("http://localhost:3000/saidas").then((res) => {
+    fetch("https://sistemacomercialservicos.onrender.com/saidas").then((res) => {
 
       return res.json()
 
@@ -126,7 +126,7 @@ const CadResultado = () => {
 
         if (result.isConfirmed) {
 
-          fetch("http://localhost:3000/resultados", {
+          fetch("https://sistemacomercialservicos.onrender.com/resultados", {
             method: "POST",
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(cadobj)
@@ -169,7 +169,7 @@ const CadResultado = () => {
   
         if (result.isConfirmed) {
   
-          fetch("http://localhost:3000/entradas/" + id, {
+          fetch("https://sistemacomercialservicos.onrender.com/entradas/" + id, {
   
             method: "DELETE"
   
@@ -201,7 +201,7 @@ const CadResultado = () => {
   
         if (result.isConfirmed) {
   
-          fetch("http://localhost:3000/saidas/" + id, {
+          fetch("https://sistemacomercialservicos.onrender.com/saidas/" + id, {
   
             method: "DELETE"
   
@@ -233,7 +233,7 @@ const CadResultado = () => {
           if (result.isConfirmed) {
             for (id = 0; id <= entradadata.length; id++) {
     
-              fetch("http://localhost:3000/entradas/" + id, {
+              fetch("https://sistemacomercialservicos.onrender.com/entradas/" + id, {
     
                 method: "DELETE"
     
@@ -266,7 +266,7 @@ const CadResultado = () => {
           if (result.isConfirmed) {
             for (id = 0; id <= saidadata.length; id++) {
     
-              fetch("http://localhost:3000/saidas/" + id, {
+              fetch("https://sistemacomercialservicos.onrender.com/saidas/" + id, {
     
                 method: "DELETE"
     

@@ -21,7 +21,7 @@ const CadFornecedor = () => {
 
 
   useEffect(() => {
-    fetch("http://localhost:3000/catfornecedor").then((res) => {
+    fetch("https://sistemacomercialservicos.onrender.com/catfornecedor").then((res) => {
 
       return res.json()
 
@@ -272,7 +272,7 @@ function mudacorCat(){
                   const datacad = data.toLocaleDateString('pt-BR', { timeZone: 'UTC' });
                   const cadobj = { nome, endereco, comp, cep, cidade, email, fone, datacad, catforn }          
                   
-                  fetch("http://localhost:3000/fornecedor", {
+                  fetch("https://sistemacomercialservicos.onrender.com/fornecedor", {
                     method: "POST",
                     headers: { 'content-type': 'application/json' },
                     body: JSON.stringify(cadobj)
@@ -321,7 +321,7 @@ function mudacorCat(){
            const datacad = data.toLocaleDateString('pt-BR', { timeZone: 'UTC' });
            const cadobj = { nome, endereco, numero, cep, cidade, email, fone, datacad, catforn }
 
-           fetch("http://localhost:3000/fornecedor", {
+           fetch("https://sistemacomercialservicos.onrender.com/fornecedor", {
             method: "POST",
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(cadobj)

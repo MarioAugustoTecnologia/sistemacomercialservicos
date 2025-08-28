@@ -11,7 +11,7 @@ const MesCompraAtual = () => {
 
   useEffect(() => {
 
-    fetch("http://localhost:3000/mescompraatual").then((res) => {
+    fetch("https://sistemacomercialservicos.onrender.com/mescompraatual").then((res) => {
 
         return res.json()
 
@@ -27,7 +27,7 @@ const MesCompraAtual = () => {
 
 const handleDelete = (id) => {    
 
-  fetch("http://localhost:3000/mescompraatual/" + id , {
+  fetch("https://sistemacomercialservicos.onrender.com/mescompraatual/" + id , {
 
       method: "DELETE"    
 

@@ -12,7 +12,7 @@ const Fornecedores = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    fetch("http://localhost:3000/fornecedor").then((res) => {
+    fetch("https://sistemacomercialservicos.onrender.com/fornecedor").then((res) => {
 
       return res.json()      
 
@@ -41,7 +41,7 @@ const Fornecedores = () => {
 
       if (result.isConfirmed) {
 
-        fetch("http://localhost:3000/fornecedor/" + id, {
+        fetch("https://sistemacomercialservicos.onrender.com/fornecedor/" + id, {
 
           method: "DELETE"
 
@@ -75,7 +75,7 @@ const Fornecedores = () => {
 
         for (id = 0; id <= fornecedores.length; id++) {
 
-          fetch("http://localhost:3000/fornecedor/" + id, {
+          fetch("https://sistemacomercialservicos.onrender.com/fornecedor/" + id, {
 
             method: "DELETE"
 

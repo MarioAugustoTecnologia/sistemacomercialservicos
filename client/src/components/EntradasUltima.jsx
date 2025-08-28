@@ -11,7 +11,7 @@ const EntradasUltima = () => {
 
   useEffect(() => {
 
-    fetch("http://localhost:3000/atual").then((res) => {
+    fetch("https://sistemacomercialservicos.onrender.com/atual").then((res) => {
 
         return res.json()
 
@@ -27,7 +27,7 @@ const EntradasUltima = () => {
 
 const handleDelete = (id) => {    
 
-  fetch("http://localhost:3000/atual/" + id , {
+  fetch("https://sistemacomercialservicos.onrender.com/atual/" + id , {
 
       method: "DELETE"    
 

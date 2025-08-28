@@ -19,7 +19,7 @@ const EntradasMes = () => {
 
   useEffect(() => {
 
-    fetch("http://localhost:3000/vendas").then((res) => {
+    fetch("https://sistemacomercialservicos.onrender.com/vendas").then((res) => {
 
       return res.json()
 
@@ -47,7 +47,7 @@ const EntradasMes = () => {
       if (result.isConfirmed) {
 
 
-        fetch("http://localhost:3000/vendas/" + id, {
+        fetch("https://sistemacomercialservicos.onrender.com/vendas/" + id, {
 
           method: "DELETE"
 
@@ -106,7 +106,7 @@ const EntradasMes = () => {
       const cadobj = { nome, total, preco, mes, vendan, troco, valorpagto, data_cad }
     
 
-      fetch("http://localhost:3000/vendas", {
+      fetch("https://sistemacomercialservicos.onrender.com/vendas", {
         method: "POST",
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify(cadobj)
@@ -120,7 +120,7 @@ const EntradasMes = () => {
 
         const cadobj2 = { nome, total }
 
-        fetch("http://localhost:3000/entradas", {
+        fetch("https://sistemacomercialservicos.onrender.com/entradas", {
         method: "POST",
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify(cadobj2)
@@ -151,7 +151,7 @@ const EntradasMes = () => {
   
           if (result.isConfirmed) {
   
-            fetch("http://localhost:3000/mesatual", {
+            fetch("https://sistemacomercialservicos.onrender.com/mesatual", {
               method: "POST",
               headers: { 'content-type': 'application/json' },
               body: JSON.stringify(cadobj)

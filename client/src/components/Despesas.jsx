@@ -13,7 +13,7 @@ const Despesas = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    fetch("http://localhost:3000/despesas").then((res) => {
+    fetch("https://sistemacomercialservicos.onrender.com/despesas").then((res) => {
 
       return res.json()
 
@@ -42,7 +42,7 @@ const Despesas = () => {
 
       if (result.isConfirmed) {
 
-        fetch("http://localhost:3000/despesas/" + id, {
+        fetch("https://sistemacomercialservicos.onrender.com/despesas/" + id, {
 
           method: "DELETE"
 
@@ -74,7 +74,7 @@ const Despesas = () => {
       if (result.isConfirmed) {
         for (id = 0; id <= despesas.length; id++) {
 
-          fetch("http://localhost:3000/despesas/" + id, {
+          fetch("https://sistemacomercialservicos.onrender.com/despesas/" + id, {
 
             method: "DELETE"
 
@@ -124,7 +124,7 @@ const Despesas = () => {
 
     const cadobj = { nome, total, custo, data_cad, mes }
 
-    fetch("http://localhost:3000/despesas", {
+    fetch("https://sistemacomercialservicos.onrender.com/despesas", {
       method: "POST",
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(cadobj)
@@ -138,7 +138,7 @@ const Despesas = () => {
 
     const cadobj2 = { nome, total }
 
-    fetch("http://localhost:3000/saidas", {
+    fetch("https://sistemacomercialservicos.onrender.com/saidas", {
       method: "POST",
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(cadobj2)

@@ -11,7 +11,7 @@ const ProdutoCatEditar = () => {
   const { catcod } = useParams()
 
   useEffect(() => {
-    fetch("http://localhost:3000/catproduto/" + catcod).then((res) => {
+    fetch("https://sistemacomercialservicos.onrender.com/catproduto/" + catcod).then((res) => {
       return res.json();
     }).then((resp) => {
       nomechange(resp.nome); 
@@ -64,7 +64,7 @@ const ProdutoCatEditar = () => {
                                   
                   if (result.isConfirmed) {
       
-                      fetch("http://localhost:3000/catproduto/" + catcod, {
+                      fetch("https://sistemacomercialservicos.onrender.com/catproduto/" + catcod, {
                            method: "PUT",
                            headers: {'content-type':'application/json'},
                            body: JSON.stringify(edtdobj)

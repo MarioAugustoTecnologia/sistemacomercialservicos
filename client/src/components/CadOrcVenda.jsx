@@ -14,7 +14,7 @@ const CadOrcVenda = () => {
 
 
   useEffect(() => {
-    fetch("http://localhost:3000/produtos/" + pcod).then((res) => {
+    fetch("https://sistemacomercialservicos.onrender.com/produtos/" + pcod).then((res) => {
       return res.json();
     }).then((resp) => {
       Idchange(resp.id);
@@ -122,7 +122,7 @@ const CadOrcVenda = () => {
 
             if (result.isConfirmed) {
 
-              fetch("http://localhost:3000/orcvenda", {
+              fetch("https://sistemacomercialservicos.onrender.com/orcvenda", {
                 method: "POST",
                 headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(cadobj)
@@ -156,7 +156,7 @@ const CadOrcVenda = () => {
 
             if (result.isConfirmed) {
 
-              fetch("http://localhost:3000/orcvenda", {
+              fetch("https://sistemacomercialservicos.onrender.com/orcvenda", {
                 method: "POST",
                 headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(cadobj)
@@ -192,7 +192,7 @@ const CadOrcVenda = () => {
 
             if (result.isConfirmed) {
 
-              fetch("http://localhost:3000/orcvenda", {
+              fetch("https://sistemacomercialservicos.onrender.com/orcvenda", {
                 method: "POST",
                 headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(cadobj)
@@ -226,7 +226,7 @@ const CadOrcVenda = () => {
 
             if (result.isConfirmed) {
 
-              fetch("http://localhost:3000/orcvenda", {
+              fetch("https://sistemacomercialservicos.onrender.com/orcvenda", {
                 method: "POST",
                 headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(cadobj)

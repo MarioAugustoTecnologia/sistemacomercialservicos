@@ -25,7 +25,7 @@ const CadNovaCompra = () => {
 
   useEffect(() => {
 
-    fetch("http://localhost:3000/compraatual").then((res) => {
+    fetch("https://sistemacomercialservicos.onrender.com/compraatual").then((res) => {
 
       return res.json()
 
@@ -41,7 +41,7 @@ const CadNovaCompra = () => {
 
   useEffect(() => {
 
-    fetch("http://localhost:3000/mescompraatual").then((res) => {
+    fetch("https://sistemacomercialservicos.onrender.com/mescompraatual").then((res) => {
 
       return res.json()
 
@@ -57,7 +57,7 @@ const CadNovaCompra = () => {
 
 
   useEffect(() => {
-    fetch("http://localhost:3000/fornecedor").then((res) => {
+    fetch("https://sistemacomercialservicos.onrender.com/fornecedor").then((res) => {
 
       return res.json()
 
@@ -265,7 +265,7 @@ const CadNovaCompra = () => {
 
               if (result.isConfirmed) {
 
-                fetch("http://localhost:3000/compras", {
+                fetch("https://sistemacomercialservicos.onrender.com/compras", {
                   method: "POST",
                   headers: { 'content-type': 'application/json' },
                   body: JSON.stringify(cadobj)
@@ -303,7 +303,7 @@ const CadNovaCompra = () => {
 
                   if (result.isConfirmed) {
 
-                    fetch("http://localhost:3000/compras", {
+                    fetch("https://sistemacomercialservicos.onrender.com/compras", {
                       method: "POST",
                       headers: { 'content-type': 'application/json' },
                       body: JSON.stringify(cadobj)
@@ -354,7 +354,7 @@ const CadNovaCompra = () => {
 
               if (result.isConfirmed) {
 
-                fetch("http://localhost:3000/compras", {
+                fetch("https://sistemacomercialservicos.onrender.com/compras", {
                   method: "POST",
                   headers: { 'content-type': 'application/json' },
                   body: JSON.stringify(cadobj)
@@ -408,7 +408,7 @@ const CadNovaCompra = () => {
 
             if (result.isConfirmed) {
 
-              fetch("http://localhost:3000/compras", {
+              fetch("https://sistemacomercialservicos.onrender.com/compras", {
                 method: "POST",
                 headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(cadobj)

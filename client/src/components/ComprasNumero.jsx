@@ -16,7 +16,7 @@ const ComprasNumero = () => {
 
     useEffect(() => {
 
-        fetch("http://localhost:3000/compras").then((res) => {
+        fetch("https://sistemacomercialservicos.onrender.com/compras").then((res) => {
 
             return res.json()
 
@@ -34,7 +34,7 @@ const ComprasNumero = () => {
     const [forname, fornamechange] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost:3000/fornecedor").then((res) => {
+        fetch("https://sistemacomercialservicos.onrender.com/fornecedor").then((res) => {
 
             return res.json()
 
@@ -69,7 +69,7 @@ const ComprasNumero = () => {
 
             if (result.isConfirmed) {
 
-                fetch("http://localhost:3000/compras/" + id, {
+                fetch("https://sistemacomercialservicos.onrender.com/compras/" + id, {
 
                     method: "DELETE"
 
@@ -260,7 +260,7 @@ const ComprasNumero = () => {
 
                         if (result.isConfirmed) {
 
-                            fetch("http://localhost:3000/compras", {
+                            fetch("https://sistemacomercialservicos.onrender.com/compras", {
                                 method: "POST",
                                 headers: { 'content-type': 'application/json' },
                                 body: JSON.stringify(cadobj)
@@ -294,7 +294,7 @@ const ComprasNumero = () => {
 
                             if (result.isConfirmed) {
 
-                                fetch("http://localhost:3000/compras", {
+                                fetch("https://sistemacomercialservicos.onrender.com/compras", {
                                     method: "POST",
                                     headers: { 'content-type': 'application/json' },
                                     body: JSON.stringify(cadobj)
@@ -312,9 +312,7 @@ const ComprasNumero = () => {
                         });
 
                     }
-
             } else {
-
 
                 const compran = document.getElementById('compran').value
                 const nome = document.getElementById('nome').value;
@@ -340,7 +338,7 @@ const ComprasNumero = () => {
 
                     if (result.isConfirmed) {
 
-                        fetch("http://localhost:3000/compras", {
+                        fetch("https://sistemacomercialservicos.onrender.com/compras", {
                             method: "POST",
                             headers: { 'content-type': 'application/json' },
                             body: JSON.stringify(cadobj)
@@ -377,7 +375,7 @@ const ComprasNumero = () => {
             const numero = buscanumero;
             const register = { numero }
 
-            fetch("http://localhost:3000/compraatual/", {
+            fetch("https://sistemacomercialservicos.onrender.com/compraatual/", {
                 method: "POST",
                 headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(register)

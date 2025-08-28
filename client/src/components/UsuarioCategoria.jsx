@@ -22,7 +22,7 @@ const UsuarioCategoria = () => {
 
   useEffect(() => {
 
-    fetch("http://localhost:3000/usuarios").then((res) => {
+    fetch("https://sistemacomercialservicos.onrender.com/usuarios").then((res) => {
 
     return res.json()
 
@@ -53,7 +53,7 @@ const UsuarioCategoria = () => {
                           
                   if (result.isConfirmed) {
 
-                    fetch("http://localhost:3000/usuarios/" + id, {
+                    fetch("https://sistemacomercialservicos.onrender.com/usuarios/" + id, {
 
                             method: "DELETE"    
 

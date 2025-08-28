@@ -14,7 +14,7 @@ const Produtos = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    fetch("http://localhost:3000/produtos").then((res) => {
+    fetch("https://sistemacomercialservicos.onrender.com/produtos").then((res) => {
 
       return res.json()
 
@@ -45,7 +45,7 @@ const Produtos = () => {
 
       if (result.isConfirmed) {
 
-        fetch("http://localhost:3000/produtos/" + id, {
+        fetch("https://sistemacomercialservicos.onrender.com/produtos/" + id, {
 
           method: "DELETE"
 
@@ -78,7 +78,7 @@ const Produtos = () => {
 
         for (id = 0; id <= produtodata.length; id++) {
 
-          fetch("http://localhost:3000/produtos/" + id, {
+          fetch("https://sistemacomercialservicos.onrender.com/produtos/" + id, {
 
             method: "DELETE"
 

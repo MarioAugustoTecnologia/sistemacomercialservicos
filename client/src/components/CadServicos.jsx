@@ -153,7 +153,7 @@ const CadServicos = () => {
 
                 if (result.isConfirmed) {             
 
-                    fetch("http://localhost:3000/produtos", {
+                    fetch("https://sistemacomercialservicos.onrender.com/produtos", {
                         method: "POST",
                         headers: { 'content-type': 'application/json' },
                         body: JSON.stringify(cadobj)
