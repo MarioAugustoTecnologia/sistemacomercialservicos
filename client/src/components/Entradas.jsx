@@ -247,7 +247,7 @@ const Entradas = () => {
           <div className="px-5 mt-5">
             <div className="mb3" style={{width:2000}}>
               <Link to="/produtos/codigo" className="btn" style={{ fontSize: '18px', fontFamily: 'arial', color: 'white', backgroundColor: 'orange' }}>Nova Venda:</Link>
-              <Link to="/entradas/nome" className="btn" style={{ color: 'white', backgroundColor: 'green', margin: '0 25px', fontSize: '18px', fontFamily: 'arial' }}>Faturamento por Produto e Serviço:</Link>
+              <Link to="/entradas/nome" className="btn" style={{ color: 'white', backgroundColor: 'green', margin: '0 25px', fontSize: '18px', fontFamily: 'arial' }}>Faturamento só:</Link>
               <Link to="/entradas/data" className="btn" style={{ color: 'white', backgroundColor: 'yellowgreen', margin: '0 3px', fontSize: '18px', fontFamily: 'arial' }}>Faturamento por data:</Link>
               <Link to="/entradas/mes" className="btn" style={{ color: 'white', backgroundColor: 'DarkSlateBlue', margin: '0 25px', fontSize: '18px', fontFamily: 'arial' }}>Faturamento por mes:</Link>
               <Link to="/entradas/numero" className="btn" style={{ color: 'white', backgroundColor: 'DeepSkyBlue', margin: '0 2px', fontSize: '18px', fontFamily: 'arial' }}>Totalizar Venda:</Link>
