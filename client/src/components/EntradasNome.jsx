@@ -197,16 +197,40 @@ const EntradasNome = () => {
                    document.getElementById("total").innerText = "R$" + (somaTotal).toFixed(2);
 
           }
-        }                      
+        }                
+ 
 
-  
+      }else{
 
+         for (let i = 0; i < linhas.length; i++) {
+
+          const celulas = linhas[i].getElementsByTagName("td");
+
+          for (let j = 12; j < celulas.length; j++) {
+
+            const valorCelula = celulas[j].innerHTML;
+            // Converte o valor para número, tratando erros com try/catch
+            try {
+              const numero = Number(valorCelula);
+
+              if (!isNaN(numero)) { // Verifica se é um número válido
+                somaTotal += numero;
+              } else {
+                console.warn(`Valor não numérico encontrado na célula: ${valorCelula}`);
+              }
+            } catch (error) {
+              console.error("Erro ao converter valor para número:", error);
+            }
+          }
+
+        }
+             document.getElementById("total").innerText = "R$" + (somaTotal).toFixed(2);
+ 
       }
     
     }  
 
  }
-
 
 
   const logout = () => {
