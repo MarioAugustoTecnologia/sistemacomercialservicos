@@ -226,7 +226,7 @@ const CatProdutos = () => {
           <Outlet />
           <div className="px-5 mt-5" style={{ fontFamily: 'arial' }}>
             <div>
-              <h4 className="h4" ><strong className="strong" style={{ color: 'red', fontSize: '25px', margin: '0 660px' }}>Categorias:</strong></h4>
+              <h4 className="h4" ><strong className="strong" style={{ color: 'red', fontSize: '25px', margin: '0 760px' }}>Categorias:</strong></h4>
               <br />
               <div className="mt-3">
                 <table className="table" id="table" style={{ fontSize: '20px', width: 460, margin: '0 600px' }}>
