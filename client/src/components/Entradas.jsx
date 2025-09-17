@@ -249,7 +249,7 @@ const Entradas = () => {
               <Link to="/produtos/codigo" className="btn" style={{ fontSize: '18px', fontFamily: 'arial', color: 'white', backgroundColor: 'orange' }}>Nova Venda:</Link>
               <Link to="/entradas/nome" className="btn" style={{ color: 'white', backgroundColor: 'green', margin: '0 25px', fontSize: '18px', fontFamily: 'arial' }}>Faturamento por produto e serviço:</Link>
               <Link to="/entradas/data" className="btn" style={{ color: 'white', backgroundColor: 'yellowgreen', margin: '0 3px', fontSize: '18px', fontFamily: 'arial' }}>Faturamento por data:</Link>
-              <Link to="/entradas/mes" className="btn" style={{ color: 'white', backgroundColor: 'DarkSlateBlue', margin: '0 25px', fontSize: '18px', fontFamily: 'arial' }}>Faturamento por mes:</Link>
+              <Link to="/entradas/mes" className="btn" style={{ color: 'white', backgroundColor: 'DarkSlateBlue', margin: '0 25px', fontSize: '18px', fontFamily: 'arial' }}>Faturamento e atualização do mes:</Link>
               <Link to="/entradas/numero" className="btn" style={{ color: 'white', backgroundColor: 'DeepSkyBlue', margin: '0 2px', fontSize: '18px', fontFamily: 'arial' }}>Totalizar Venda:</Link>
               <Link to="/entradas/numero/categoria" className="btn" style={{ color: 'white', backgroundColor: 'DarkCyan', margin: '0 25px', fontSize: '18px', fontFamily: 'arial' }}>Total da Nota Fiscal:</Link>
               <Link to="/entradas/ultima" className="btn" style={{ color: 'white', backgroundColor: 'Crimson', margin: '0 5px', fontSize: '18px', fontFamily: 'arial' }}>Venda Atual:</Link>
