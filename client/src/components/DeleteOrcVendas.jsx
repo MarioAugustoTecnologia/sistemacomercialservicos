@@ -9,87 +9,91 @@ const OrcVendas = () => {
   const [orcvendas, setOrcVendas] = useState([])
 
 
-  useEffect(() => {
+  const API_URL = 'https://sistemacomercialservicos.onrender.com/orcvenda';
 
-    fetch("https://sistemacomercialservicos.onrender.com/orcvenda").then((res) => {
+   useEffect(() => {
+   
+       fetch(API_URL)
+         .then(response => response.json())
+         .then(data => setOrcVendas(data))
+         .catch(error => console.error('Erro ao buscar os dados:', error));
+   
+     }, [])
 
-      return res.json()
-
-    }).then((resp) => {
-
-      setOrcVendas(resp)
-
-    }).catch((err) => {
-      console.log(err.message)
-    })
-
-  }, [])
-
-
-   const deleteall = (id) => {
-
-      Swal.fire({
+     const handleDelete = async (id) => {
+       
+           const result = await Swal.fire({
+             title: "Deseja Excluir ?",
+             showDenyButton: true,
+             showCancelButton: true,
+             confirmButtonText: "Excluir",
+             denyButtonText: `Não Excluir`
+           })
+       
+           if (result.isConfirmed) {
+       
+             fetch('https://sistemacomercialservicos.onrender.com/orcvenda/' + id, {
+       
+               method: "DELETE"
+       
+             }).then((res) => {
+       
+               window.location.reload();
+               //toast.success('Excluido com sucesso !')      
+       
+             }).catch((err) => {
+               toast.error('Erro ! :' + err.message)
+             })
+       
+           } else if (result.isDenied) {
+             Swal.fire("Nada excluido", "", "info");
+           }
+       
+       
+         }
+     
+      const deleteall = async () => {
+      
+          const result = await Swal.fire({
             title: "Deseja Excluir ?",
             showDenyButton: true,
             showCancelButton: true,
             confirmButtonText: "Excluir",
             denyButtonText: `Não Excluir`
-          }).then((result) => {
+          })
       
-            if (result.isConfirmed) {
-      
-              for (id = 0; id <= orcvendas.length; id++) {
-      
-                fetch("https://sistemacomercialservicos.onrender.com/orcvenda/" + id, {
-          
-                  method: "DELETE" 
-
-                }).then((res) => {   
-
-                  window.location.reload();               
-          
-                }).catch((err) => {
-                  toast.error('Erro ! :' + err.message)
-                })
-          
-              }
-      
-            } else if (result.isDenied) {
-              Swal.fire("Nada excluido", "", "info");
-            }
-          });      
-    
-    } 
-    
-     const handleDelete = (id) => {
-    
-        Swal.fire({
-          title: "Deseja Excluir ?",
-          showDenyButton: true,
-          showCancelButton: true,
-          confirmButtonText: "Excluir",
-          denyButtonText: `Não Excluir`
-        }).then((result) => {
-    
           if (result.isConfirmed) {
-    
-            fetch("https://sistemacomercialservicos.onrender.com/orcvenda/" + id, {
-    
-              method: "DELETE"
-    
-            }).then((res) => {
-    
-              window.location.reload();    
-    
-            }).catch((err) => {
-              toast.error('Erro ! :' + err.message)
-            })
-    
+      
+            try {
+              // Mapeia o array de vendas para um array de promessas de exclusão
+              const deletePromises = orcvendas.map(item =>
+                fetch(`${API_URL}/${item.id}`, {
+                  method: 'DELETE',
+                })
+              );
+      
+              // Espera que todas as promessas de exclusão sejam resolvidas
+              await Promise.all(deletePromises);
+      
+              // Limpa a lista no estado do React
+              setOrcVendas([]);
+              //console.log('Todos os dados foram excluídos com sucesso!');
+              toast.success('Excluido com sucesso !')  
+      
+            } catch (error) {
+      
+              console.error('Erro ao excluir todos os dados:', error);
+            }
+      
+      
+      
           } else if (result.isDenied) {
             Swal.fire("Nada excluido", "", "info");
           }
-        });
-  }
+      
+      
+        };
+   
 
   const navigate = useNavigate()
 

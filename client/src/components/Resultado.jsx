@@ -9,96 +9,88 @@ const Resultado = () => {
 
   const [resultado, setResultado] = useState([])
 
-  useEffect(() => {
+   const API_URL = 'https://sistemacomercialservicos.onrender.com/resultados';
+   
+     useEffect(() => {
+   
+       fetch(API_URL)
+         .then(response => response.json())
+         .then(data => setResultado(data))
+         .catch(error => console.error('Erro ao buscar os dados:', error));
+   
+     }, [])
 
-    fetch("https://sistemacomercialservicos.onrender.com/resultados", {
-
-      method: "GET",
-      headers: { 'content-type': 'application/json' }
-    }
-
-    ).then((res) => {
-
-      return res.json()
-
-    }).then((resp) => {
-
-      setResultado(resp)
-
-    }).catch((err) => {
-      console.log(err.message)
-    })
-  }, [])
-
-
-  const handleDelete = (id) => {
-
-    Swal.fire({
-      title: "Deseja Excluir ?",
-      showDenyButton: true,
-      showCancelButton: true,
-      confirmButtonText: "Excluir",
-      denyButtonText: `Não Excluir`
-    }).then((result) => {
-
-      if (result.isConfirmed) {
-
-        fetch("https://sistemacomercialservicos.onrender.com/resultados/" + id, {
-
-          method: "DELETE"
-
-        }).then((res) => {
-
-          window.location.reload();
-          //toast.success('Excluido com sucesso !')      
-
-        }).catch((err) => {
-          toast.error('Erro ! :' + err.message)
-        })
-
-      } else if (result.isDenied) {
-        Swal.fire("Nada excluido", "", "info");
-      }
-    });
-
-  }
-
-  const deleteall = (id) => {
-
-    Swal.fire({
-      title: "Deseja Excluir ?",
-      showDenyButton: true,
-      showCancelButton: true,
-      confirmButtonText: "Excluir",
-      denyButtonText: `Não Excluir`
-    }).then((result) => {
-
-      if (result.isConfirmed) {
-
-        for (id = 0; id <= resultado.length; id++) {
-
-          fetch("https://sistemacomercialservicos.onrender.com/resultados/" + id, {
-    
-            method: "DELETE"
-    
-          }).then((res) => {
-    
-            window.location.reload();
-            //toast.success('Excluido com sucesso !')    
-    
-          }).catch((err) => {
-            toast.error('Erro ! :' + err.message)
+      const handleDelete = async (id) => {
+       
+           const result = await Swal.fire({
+             title: "Deseja Excluir ?",
+             showDenyButton: true,
+             showCancelButton: true,
+             confirmButtonText: "Excluir",
+             denyButtonText: `Não Excluir`
+           })
+       
+           if (result.isConfirmed) {
+       
+             fetch('https://sistemacomercialservicos.onrender.com/resultados/' + id, {
+       
+               method: "DELETE"
+       
+             }).then((res) => {
+       
+               window.location.reload();
+               //toast.success('Excluido com sucesso !')      
+       
+             }).catch((err) => {
+               toast.error('Erro ! :' + err.message)
+             })
+       
+           } else if (result.isDenied) {
+             Swal.fire("Nada excluido", "", "info");
+           }
+       
+       
+         }
+     
+      const deleteall = async () => {
+      
+          const result = await Swal.fire({
+            title: "Deseja Excluir ?",
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: "Excluir",
+            denyButtonText: `Não Excluir`
           })
-    
-        }
-
-      } else if (result.isDenied) {
-        Swal.fire("Nada excluido", "", "info");
-      }
-    });
-
-  }
-
+      
+          if (result.isConfirmed) {
+      
+            try {
+              // Mapeia o array de vendas para um array de promessas de exclusão
+              const deletePromises = resultado.map(item =>
+                fetch(`${API_URL}/${item.id}`, {
+                  method: 'DELETE',
+                })
+              );
+      
+              // Espera que todas as promessas de exclusão sejam resolvidas
+              await Promise.all(deletePromises);
+      
+              // Limpa a lista no estado do React
+              setResultado([]);
+              //console.log('Todos os dados foram excluídos com sucesso!');
+              toast.success('Excluido com sucesso !')  
+      
+            } catch (error) {
+      
+              console.error('Erro ao excluir todos os dados:', error);
+            }    
+            
+          } else if (result.isDenied) {
+            Swal.fire("Nada excluido", "", "info");
+          }      
+      
+      };
+ 
   const logout = () => {
     localStorage.clear()
     console.clear();

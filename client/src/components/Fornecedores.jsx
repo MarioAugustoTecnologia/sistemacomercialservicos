@@ -11,89 +11,93 @@ const Fornecedores = () => {
 
   const navigate = useNavigate()
 
-  useEffect(() => {
-    fetch("https://sistemacomercialservicos.onrender.com/fornecedor").then((res) => {
+   const API_URL = 'https://sistemacomercialservicos.onrender.com/fornecedor';
+   
+     useEffect(() => {
+   
+       fetch(API_URL)
+         .then(response => response.json())
+         .then(data => setFornecedores(data))
+         .catch(error => console.error('Erro ao buscar os dados:', error));
+   
+     }, [])
 
-      return res.json()      
-
-    }).then((resp) => {
-      
-      setFornecedores(resp)
-
-    }).catch((err) => {
-      console.log(err.message)
-    })
-  }, [])
-
-  const LoadEdit = (id) => {
-    navigate("/fornecedor/editar/" + id);
-  }
-
-  const handleDelete = (id) => {
-
-    Swal.fire({
-      title: "Deseja Excluir ?",
-      showDenyButton: true,
-      showCancelButton: true,
-      confirmButtonText: "Excluir",
-      denyButtonText: `Não Excluir`
-    }).then((result) => {
-
+     const handleDelete = async (id) => {
+  
+      const result = await Swal.fire({
+        title: "Deseja Excluir ?",
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: "Excluir",
+        denyButtonText: `Não Excluir`
+      })
+  
       if (result.isConfirmed) {
-
-        fetch("https://sistemacomercialservicos.onrender.com/fornecedor/" + id, {
-
+  
+        fetch('https://sistemacomercialservicos.onrender.com/fornecedor/' + id, {
+  
           method: "DELETE"
-
+  
         }).then((res) => {
-
+  
           window.location.reload();
-
+          //toast.success('Excluido com sucesso !')      
+  
         }).catch((err) => {
           toast.error('Erro ! :' + err.message)
         })
-
+  
       } else if (result.isDenied) {
         Swal.fire("Nada excluido", "", "info");
       }
-    })
+  
+  
+    }
 
-  }
+ const deleteall = async () => {
+ 
+     const result = await Swal.fire({
+       title: "Deseja Excluir ?",
+       showDenyButton: true,
+       showCancelButton: true,
+       confirmButtonText: "Excluir",
+       denyButtonText: `Não Excluir`
+     })
+ 
+     if (result.isConfirmed) {
+ 
+       try {
+         // Mapeia o array de vendas para um array de promessas de exclusão
+         const deletePromises = fornecedores.map(item =>
+           fetch(`${API_URL}/${item.id}`, {
+             method: 'DELETE',
+           })
+         );
+ 
+         // Espera que todas as promessas de exclusão sejam resolvidas
+         await Promise.all(deletePromises);
+ 
+         // Limpa a lista no estado do React
+         setFornecedores([]);
+         //console.log('Todos os dados foram excluídos com sucesso!');
+         toast.success('Excluido com sucesso !')  
+ 
+       } catch (error) {
+ 
+         console.error('Erro ao excluir todos os dados:', error);
+       }
+ 
+ 
+ 
+     } else if (result.isDenied) {
+       Swal.fire("Nada excluido", "", "info");
+     } 
+ 
+   };
 
 
-  const deleteall = (id) => {
-
-    Swal.fire({
-      title: "Deseja Excluir ?",
-      showDenyButton: true,
-      showCancelButton: true,
-      confirmButtonText: "Excluir",
-      denyButtonText: `Não Excluir`
-    }).then((result) => {
-
-      if (result.isConfirmed) {
-
-        for (id = 0; id <= fornecedores.length; id++) {
-
-          fetch("https://sistemacomercialservicos.onrender.com/fornecedor/" + id, {
-
-            method: "DELETE"
-
-          }).then((res) => {
-
-            window.location.reload();
-            //toast.success('Excluido com sucesso !')    
-
-          }).catch((err) => {
-            toast.error('Erro ! :' + err.message)
-          })
-
-        }
-      } else if (result.isDenied) {
-        Swal.fire("Nada excluido", "", "info");
-      }
-    })
-
+  const LoadEdit = (id) => {
+    navigate("/fornecedor/editar/" + id);
   }
 
   const logout = () => {

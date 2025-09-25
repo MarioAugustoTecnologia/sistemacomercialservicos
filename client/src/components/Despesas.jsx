@@ -9,91 +9,96 @@ const Despesas = () => {
 
   const [despesas, setDespesas] = useState([])
 
-
   const navigate = useNavigate()
 
+   const API_URL = 'https://sistemacomercialservicos.onrender.com/despesas';
+
   useEffect(() => {
-    fetch("https://sistemacomercialservicos.onrender.com/despesas").then((res) => {
+     
+         fetch(API_URL)
+           .then(response => response.json())
+           .then(data => setDespesas(data))
+           .catch(error => console.error('Erro ao buscar os dados:', error));
+     
+  }, []) 
 
-      return res.json()
 
-    }).then((resp) => {
+    const handleDelete = async (id) => {
+         
+             const result = await Swal.fire({
+               title: "Deseja Excluir ?",
+               showDenyButton: true,
+               showCancelButton: true,
+               confirmButtonText: "Excluir",
+               denyButtonText: `Não Excluir`
+             })
+         
+             if (result.isConfirmed) {
+         
+               fetch('https://sistemacomercialservicos.onrender.com/despesas/' + id, {
+         
+                 method: "DELETE"
+         
+               }).then((res) => {
+         
+                 window.location.reload();
+                 //toast.success('Excluido com sucesso !')      
+         
+               }).catch((err) => {
+                 toast.error('Erro ! :' + err.message)
+               })
+         
+             } else if (result.isDenied) {
+               Swal.fire("Nada excluido", "", "info");
+             }
+         
+         
+           }
+       
+  const deleteall = async () => {
+        
+       const result = await Swal.fire({
+              title: "Deseja Excluir ?",
+              showDenyButton: true,
+              showCancelButton: true,
+              confirmButtonText: "Excluir",
+              denyButtonText: `Não Excluir`
+            })
+        
+            if (result.isConfirmed) {
+        
+              try {
+                // Mapeia o array de vendas para um array de promessas de exclusão
+                const deletePromises = despesas.map(item =>
+                  fetch(`${API_URL}/${item.id}`, {
+                    method: 'DELETE',
+                  })
+                );
+        
+                // Espera que todas as promessas de exclusão sejam resolvidas
+                await Promise.all(deletePromises);
+        
+                // Limpa a lista no estado do React
+                setDespesas([]);
+                //console.log('Todos os dados foram excluídos com sucesso!');
+                toast.success('Excluido com sucesso !')  
+        
+              } catch (error) {
+        
+                console.error('Erro ao excluir todos os dados:', error);
+              }     
+             
+            } else if (result.isDenied) {
+              Swal.fire("Nada excluido", "", "info");
+            }
+        
+        
+  };
 
-      setDespesas(resp)
-
-    }).catch((err) => {
-      console.log(err.message)
-    })
-  }, [])
 
   const LoadEdit = (id) => {
     navigate("/despesas/editar/" + id);
-  }
-
-  const handleDelete = (id) => {
-
-    Swal.fire({
-      title: "Deseja Excluir ?",
-      showDenyButton: true,
-      showCancelButton: true,
-      confirmButtonText: "Excluir",
-      denyButtonText: `Não Excluir`
-    }).then((result) => {
-
-      if (result.isConfirmed) {
-
-        fetch("https://sistemacomercialservicos.onrender.com/despesas/" + id, {
-
-          method: "DELETE"
-
-        }).then((res) => {
-
-          window.location.reload();
-          //toast.success('Excluido com sucesso !')     
-
-        }).catch((err) => {
-          toast.error('Erro ! :' + err.message)
-        })
-      } else if (result.isDenied) {
-        Swal.fire("Nada excluido", "", "info");
-      }
-    });
-
-  }
-
-  const deleteall = (id) => {
-
-    Swal.fire({
-      title: "Deseja Excluir ?",
-      showDenyButton: true,
-      showCancelButton: true,
-      confirmButtonText: "Excluir",
-      denyButtonText: `Não Excluir`
-    }).then((result) => {
-
-      if (result.isConfirmed) {
-        for (id = 0; id <= despesas.length; id++) {
-
-          fetch("https://sistemacomercialservicos.onrender.com/despesas/" + id, {
-
-            method: "DELETE"
-
-          }).then((res) => {
-
-            window.location.reload();
-            //toast.success('Excluido com sucesso !')    
-
-          }).catch((err) => {
-            toast.error('Erro ! :' + err.message)
-          })
-
-        }
-      } else if (result.isDenied) {
-        Swal.fire("Nada excluido", "", "info");
-      }
-    });
-
-  }
+  } 
 
   function formataData() {
     let data = new Date(),
