@@ -20,37 +20,26 @@ const CadResultado = () => {
   var table = entradadata.filter(item => item.nome.toLowerCase().includes(buscarap))
   var table2 = saidadata.filter(item => item.nome.toLowerCase().includes(buscarap2))
 
-  useEffect(() => {
+  const API_ENTRADAS = 'https://sistemacomercialservicos.onrender.com/entradas';
+  const API_SAIDAS = 'https://sistemacomercialservicos.onrender.com/saidas';
+   
+     useEffect(() => {
+   
+       fetch(API_ENTRADAS)
+         .then(response => response.json())
+         .then(data => setEntradadata(data))
+         .catch(error => console.error('Erro ao buscar os dados:', error));
+   
+     }, [])
 
-    fetch("https://sistemacomercialservicos.onrender.com/entradas").then((res) => {
-
-      return res.json()
-
-    }).then((resp) => {
-
-      setEntradadata(resp)
-
-    }).catch((err) => {
-      console.log(err.message)
-    })
-
-  }, [])
-
-  useEffect(() => {
-
-    fetch("https://sistemacomercialservicos.onrender.com/saidas").then((res) => {
-
-      return res.json()
-
-    }).then((resp) => {
-
-      setSaidadata(resp)
-
-    }).catch((err) => {
-      console.log(err.message)
-    })
-
-  }, [])
+    useEffect(() => {
+   
+       fetch(API_SAIDAS)
+         .then(response => response.json())
+         .then(data => setSaidadata(data))
+         .catch(error => console.error('Erro ao buscar os dados:', error));
+   
+     }, [])
 
 
   const isValidate = () => {
@@ -220,72 +209,74 @@ const CadResultado = () => {
   
     }
 
-    const DeleteAllInputs = (id) => {
-    
-        Swal.fire({
-          title: "Deseja Excluir ?",
-          showDenyButton: true,
-          showCancelButton: true,
-          confirmButtonText: "Excluir",
-          denyButtonText: `Não Excluir`
-        }).then((result) => {
-    
+const DeleteAllInputs = async () => {
+      
+     const result = await Swal.fire({
+            title: "Deseja Excluir ?",
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: "Excluir",
+            denyButtonText: `Não Excluir`
+          })
+      
           if (result.isConfirmed) {
-            for (id = 0; id <= entradadata.length; id++) {
-    
-              fetch("https://sistemacomercialservicos.onrender.com/entradas/" + id, {
-    
-                method: "DELETE"
-    
-              }).then((res) => {
-    
-                window.location.reload();                  
-    
-              }).catch((err) => {
-                toast.error('Erro ! :' + err.message)
-              })
-    
-            }
+      
+            try {          
+              const deletePromises = entradadata.map(item =>
+                fetch(`${API_ENTRADAS}/${item.id}`, {
+                  method: 'DELETE',
+                })
+              );      
+              await Promise.all(deletePromises);   
+              setEntradadata([]);         
+              window.location.reload();  
+      
+            } catch (error) {
+      
+              console.error('Erro ao excluir todos os dados:', error);
+            }     
+           
           } else if (result.isDenied) {
             Swal.fire("Nada excluido", "", "info");
           }
-        });
-    
-      }
+      
+      
+}; 
 
-      const DeleteAllOutputs = (id) => {
-    
-        Swal.fire({
-          title: "Deseja Excluir ?",
-          showDenyButton: true,
-          showCancelButton: true,
-          confirmButtonText: "Excluir",
-          denyButtonText: `Não Excluir`
-        }).then((result) => {
-    
+
+const DeleteAllOutputs = async () => {
+      
+     const result = await Swal.fire({
+            title: "Deseja Excluir ?",
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: "Excluir",
+            denyButtonText: `Não Excluir`
+          })
+      
           if (result.isConfirmed) {
-            for (id = 0; id <= saidadata.length; id++) {
-    
-              fetch("https://sistemacomercialservicos.onrender.com/saidas/" + id, {
-    
-                method: "DELETE"
-    
-              }).then((res) => {
-    
-                window.location.reload();
-                //toast.success('Excluido com sucesso !')    
-    
-              }).catch((err) => {
-                toast.error('Erro ! :' + err.message)
-              })
-    
-            }
+      
+            try {          
+              const deletePromises = saidadata.map(item =>
+                fetch(`${API_SAIDAS}/${item.id}`, {
+                  method: 'DELETE',
+                })
+              );      
+              await Promise.all(deletePromises);   
+              setSaidadata([]);         
+              window.location.reload();  
+      
+            } catch (error) {
+      
+              console.error('Erro ao excluir todos os dados:', error);
+            }     
+           
           } else if (result.isDenied) {
             Swal.fire("Nada excluido", "", "info");
           }
-        });
-    
-      } 
+      
+      
+};  
       
       
  const handleInsert = () => {

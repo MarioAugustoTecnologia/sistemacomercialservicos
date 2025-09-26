@@ -19,8 +19,7 @@ const Compras = () => {
          .then(data => setCompras(data))
          .catch(error => console.error('Erro ao buscar os dados:', error));
    
-     }, []) 
-
+     }, [])
 
        const handleDelete = async (id) => {
        
@@ -66,21 +65,15 @@ const deleteall = async () => {
       
           if (result.isConfirmed) {
       
-            try {
-              // Mapeia o array de vendas para um array de promessas de exclusão
+            try {          
               const deletePromises = compras.map(item =>
                 fetch(`${API_URL}/${item.id}`, {
                   method: 'DELETE',
                 })
-              );
-      
-              // Espera que todas as promessas de exclusão sejam resolvidas
-              await Promise.all(deletePromises);
-      
-              // Limpa a lista no estado do React
-              setCompras([]);
-              //console.log('Todos os dados foram excluídos com sucesso!');
-              toast.success('Excluido com sucesso !')  
+              );      
+              await Promise.all(deletePromises);   
+              setCompras([]);         
+              window.location.reload();  
       
             } catch (error) {
       

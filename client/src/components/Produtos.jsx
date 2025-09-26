@@ -70,20 +70,16 @@ const Produtos = () => {
      if (result.isConfirmed) {
  
        try {
-         // Mapeia o array de vendas para um array de promessas de exclusão
+        
          const deletePromises = produtodata.map(item =>
            fetch(`${API_URL}/${item.id}`, {
              method: 'DELETE',
            })
          );
- 
-         // Espera que todas as promessas de exclusão sejam resolvidas
-         await Promise.all(deletePromises);
- 
-         // Limpa a lista no estado do React
+      
+         await Promise.all(deletePromises);    
          setProdutodata([]);
-         //console.log('Todos os dados foram excluídos com sucesso!');
-         toast.success('Excluido com sucesso !')  
+         window.location.reload();         
  
        } catch (error) {
  
