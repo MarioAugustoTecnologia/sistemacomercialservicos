@@ -126,7 +126,7 @@ const OrcVendas = () => {
                       <td className="td">{item.quant}</td>
                       <td className="td">{item.preco}</td>
                       <td className="td">{item.total}</td>
-                      <td className="td" style={{fontWeight:'bold', color:'green'}}>{item.totaldesc}</td>
+                      <td className="td">{item.totaldesc}</td>
                       <td className="td">{item.descap}</td>
                       <td className="td">{item.desc}</td>
                       <td className="td">{item.valordesc}</td>

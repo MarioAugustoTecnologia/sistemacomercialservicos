@@ -166,6 +166,85 @@ const OrcVendas = () => {
     document.getElementById('obs').innerHTML = obs;
   }
 
+  function exibedesc() {
+
+      const tabela = document.getElementById("table")
+      const linhas = tabela.getElementsByTagName("tr")
+        
+         for (let i = 0; i < linhas.length; i++) {
+
+          const celulas = linhas[i].getElementsByTagName("td");
+
+           for (let j = 8; j < celulas.length; j++) {
+
+            const valor = celulas[j].innerHTML;
+
+            if (valor !== '0') {
+
+                for (let j = 5; j < celulas.length; j++) {
+                     celulas[j].style.color = 'green';
+                     celulas[j].style.fontWeight = 'bold';
+        
+                 }
+            
+            }       
+        
+        }
+      
+
+
+  }}
+
+  function Format() {
+
+      const tabela = document.getElementById("table")
+      const linhas = tabela.getElementsByTagName("tr")
+        
+         for (let i = 0; i < linhas.length; i++) {
+
+          const celulas = linhas[i].getElementsByTagName("td");
+
+           for (let j = 1; j < celulas.length; j++) {
+
+            const nome = celulas[j].innerHTML;
+
+            if (nome === 'Total Geral:') {
+
+                 celulas[j].style.fontWeight = 'bold';
+
+                for (let j = 4; j < celulas.length; j++) {
+                     
+                     celulas[j].style.fontWeight = 'bold';
+                     celulas[5].style.fontWeight = 'normal';
+                     celulas[6].style.fontWeight = 'normal';
+                     celulas[7].style.fontWeight = 'normal';
+                     celulas[8].style.fontWeight = 'normal';
+        
+                }
+                
+                for (let j = 5; j < celulas.length; j++) {
+
+                   const valor = celulas[j].innerHTML;
+                   
+                   if (valor !== ""){
+                     
+                         celulas[j].style.fontWeight = 'bold';
+                         celulas[6].style.fontWeight = 'bold';
+                         celulas[7].style.fontWeight = 'bold';
+                         celulas[8].style.fontWeight = 'bold';
+
+                   }            
+        
+                 }
+            
+            }       
+        
+        }    
+
+
+  }} 
+
+
 
   return (
     <div className="col p-0 m-0">
@@ -221,6 +300,8 @@ const OrcVendas = () => {
                  
          </div>
           <br /><br /><br />
+          <button type="button" className="btn border" onClick={exibedesc} style={{ width: 105, margin: '0 5px', fontSize: '20px', fontFamily: 'arial', backgroundColor:'Lime' }}>Desconto:</button>
+          <button type="button" className="btn border" onClick={Format} style={{ width: 105, margin: '0 20px', fontSize: '20px', fontFamily: 'arial', backgroundColor:'navy' , color:'white'}}>Destacar:</button>
           <button type="button" className="btn btn-success border" onClick={somar} style={{ width: 100, margin: '0 260px', fontSize: '20px', fontFamily: 'arial' }}>Somar:</button>
           <label htmlFor="desconto" style={{margin:'0 -150px', fontSize:'20px'}}>Desconto:</label>
           <input type="decimal" value={desconto} onChange={e => setDesconto(e.target.value)} style={{margin:'0 154px', width:100, fontSize:'22px', color:'green', fontWeight:'bold'}} />
