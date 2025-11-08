@@ -100,7 +100,7 @@ const Home = () => {
                 >
                   <i class="bi bi-tools" style={{margin:'0 8px'}}></i>
                   <span className="ms-2 d-none d-sm-inline">
-                   Serviços:
+                  Cadastro de Serviços:
                   </span>
                 </Link>
               </li>

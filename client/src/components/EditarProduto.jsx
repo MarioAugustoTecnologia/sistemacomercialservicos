@@ -261,7 +261,7 @@ const EditarProduto = () => {
                   className="nav-link text-white px-0 align-middle"
                 >
                   <i className="fs-4 bi-speedometer2 ms-2"></i>
-                  <span className="ms-2 d-none d-sm-inline">Painel:</span>
+                  <span className="ms-2 d-none d-sm-inline">Home:</span>
                 </Link>
               </li>
               <li className="w-100">
@@ -326,7 +326,7 @@ const EditarProduto = () => {
                 >
                   <i class="bi bi-tools" style={{margin:'0 8px'}}></i>
                   <span className="ms-2 d-none d-sm-inline">
-                    Serviços:
+                   Cadastro de Serviços:
                   </span>
                 </Link>
               </li>
