@@ -11,22 +11,88 @@
     }
   ],
   "vendas": [
+     {
+      "vendan": "1",
+      "nome": "Limpeza de Pisos Grandes área garagem.",
+      "quant": "1",
+      "preco": "560.00",
+      "total": "560.00",
+      "valorpagto": "93.33",
+      "parcelamento": "6x",
+      "parcelan": "1ª",
+      "formapag": "Crédito",
+      "mes": "Dezembro",
+      "data_cad": "23/11/2025",
+      "vp": "93.33",
+      "categoria": "Serviços",
+      "id": 1
+    }
     
   ],
   "atual": [
+     {
+      "numero": "1",
+      "id": 1
+    }
  
   ],
   "catproduto": [
+    {
+      "nome": "Limpador Piso",
+      "id": 1
+    },
+    {
+      "nome": "Serviços",
+      "id": 2
+    }
  
   ],
   "produtos": [
+    {
+      "id": 1,
+      "qtd": "20",
+      "nome": "Limpa Piso Multiuso Desincrustante Encardido 5L",
+      "preco": "65.50",
+      "custo": "60.00",
+      "categoria": "Limpador Piso",
+      "data_cadastro": "22/11/2025",
+      "codigo": "001"
+    },
+    {
+      "id": 2,
+      "nome": "Limpeza de Pisos Grandes área garagem.",
+      "preco": "560.00",
+      "custo": "560.00",
+      "categoria": "Serviços",
+      "data_cadastro": "23/11/2025",
+      "codigo": "00001"
+    }
    
   ],
   "despesas": [],
   "compras": [
-   
+      {
+      "compran": "1",
+      "nome": "Limpa Piso Multiuso Desincrustante Encardido 5L",
+      "qtd": "20",
+      "custo": "60.00",
+      "total": "1200.00",
+      "data_cad": "22/11/2025",
+      "formapag": "Pix",
+      "mes": "Novembro",
+      "fornecedor": "Super Limpeza",
+      "valorpagto": "1256.32",
+      "totalfrete": "1256.32",
+      "vf": "56.32",
+      "vp": "1256.32",
+      "id": 1
+    }
   ],
   "compraatual": [
+    {
+      "numero": "1",
+      "id": 1
+    }
    
   ],
   "resultados": [],
@@ -34,22 +100,74 @@
   
   ],
   "fornecedor": [
+
+     {
+      "nome": "Super Limpeza",
+      "endereco": "Rua Jose Silva - Vila Maria ",
+      "numero": "500",
+      "cep": "202020",
+      "cidade": "Sorocaba SP",
+      "email": "superlimpeza@email.com",
+      "fone": "15 3366992",
+      "datacad": "22/11/2025",
+      "catforn": "Limpador Piso",
+      "id": 1
+    }
    
   ],
   "catfornecedor": [
+     {
+      "nome": "Limpador Piso",
+      "id": 1
+    }
    
   ],
   "mesatual": [
+     {
+      "mes": "Novembro",
+      "id": 1
+    }
    
   ],
   "mescompraatual": [
+
+    {
+      "mes": "Novembro",
+      "id": 1
+    }
   
   ],
-  "orcvenda": [],
+  "orcvenda": [
+     {
+      "orcn": "1",
+      "nome": "Limpeza de Pisos Grandes área garagem.",
+      "quant": "1",
+      "preco": "560.00",
+      "total": "560.00",
+      "valordesc": 0,
+      "totaldesc": "560.00",
+      "id": 1
+    }
+  ],
   "entradas": [
+     {
+      "nome": "Total das entradas no mes de  Junho",
+      "total": "35836.48",
+      "id": 1
+    }
   
   ],
   "saidas": [
+     {
+      "nome": "Total das compras no mes de Junho",
+      "total": "161331.03",
+      "id": 1
+    },
+    {
+      "nome": "Total das despesas em: Junho",
+      "total": "1238.65",
+      "id": 2
+    }
     
   ]
 }
