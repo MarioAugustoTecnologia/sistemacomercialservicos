@@ -309,7 +309,7 @@ const OrcVendas = () => {
           <button type="button" className="btn border" onClick={Return} style={{ width: 100, margin: '0 130px', fontSize: '20px', fontFamily: 'arial', backgroundColor:'orange', color:'white'}}>Voltar</button>
           <button type="button" className="btn border" onClick={() => generatePDF(GerarPdf, personalizacao)} style={{ width: 120, margin: '0 -50px', fontSize: '20px', fontFamily: 'arial', backgroundColor:'Crimson', color:'white'}}>Gerar Pdf:</button>
           <input type="text" value={obs} onChange={e => setObs(e.target.value)} style={{margin:'0 154px', width:400, fontSize:'22px', color:'navy', fontWeight:'bold'}} />
-          <button type="button" onClick={Obs} className="btn btn-primary" style={{ width: 100, margin: '0 -130px', fontSize: '20px', fontFamily: 'arial'}}>Obs:</button>
+          <button type="button" onClick={Obs} className="btn btn-primary" style={{ width: 100, margin: '0 -130px', fontSize: '20px', fontFamily: 'arial'}}>Data e Formas de Pagamento:</button>
          <ToastContainer />  
      
     </div>
