@@ -139,7 +139,7 @@ const CadServicos = () => {
         const preco = document.getElementById('total').value;
         const custo = document.getElementById('total').value;      
 
-        const cadobj = { nome, custo, categoria, preco, qtd, codigo, data_cadastro }    
+        const cadobj = { nome, custo, categoria, preco, codigo, data_cadastro }    
 
         if (isValidate()) {
 
